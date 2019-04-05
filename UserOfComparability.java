@@ -12,21 +12,39 @@ public class UserOfComparability {
         Point p0 = new Point( 3., 4.);
         reportRelationship( "Point vs. itself", p0, p0, "0");
 
-        // // Point vs. its reflection about y = x
-        // reportRelationship( "Point vs. its reflection about y = x"
-                          // , p0, new Point( 4., 3.), "0");
+        // Point vs. its reflection about y = x
+        reportRelationship( "Point vs. its reflection about y = x"
+                          , p0, new Point( 4., 3.), "0");
 
-        // // Point vs. point closer to origin
-        // reportRelationship( "Point vs. point closer to origin", p0
-                          // , new Point( 1., 2.), "positive int");
+        // Point vs. point closer to origin
+        reportRelationship( "Point vs. point closer to origin", p0
+                          , new Point( 1., 2.), "positive int");
 
-        // // Point vs. distant point
-        // reportRelationship( "Point vs. distant point", p0
-                          // , new Point( 100., 2.), "negative int");
-        // System.out.println( "---- end of Point comparisons ----");
+        // Point vs. distant point
+        reportRelationship( "Point vs. distant point", p0
+                          , new Point( 100., 2.), "negative int");
+        System.out.println( "---- end of Point comparisons ----");
         
-        // System.out.println( System.lineSeparator()
-                          // + "Date comparisons");
+        System.out.println( System.lineSeparator()
+                          + "Date comparisons");
+                          
+        //Date vs. itself
+        Date d0 = new Date( 2019, 4, 4);
+        reportRelationship("Date vs. itself", d0, d0, "0");
+        
+        //Date vs. earlier date
+        reportRelationship("Date vs. earlier date", d0, new Date(2019, 4, 3), "1");
+        
+        //Date vs. later date
+        reportRelationship("Date vs. later date", d0, new Date(2019, 4, 5), "-1");
+        System.out.println( "---- end of Date comparisons ----");
+        
+        //incomp dogs being compared
+        // reportRelationship("Hell but with dogs", new IncomparableDog(), new IncomparableDog(), "?");
+        
+        //Date vs. Point
+        // reportRelationship("Date vs. Point", d0, p0, "?");
+        
     }
 
 
@@ -35,8 +53,8 @@ public class UserOfComparability {
      */
     private static void reportRelationship 
       ( String description
-      , Point a
-      , Point b
+      , Comparable a
+      , Comparable b
       , String expect
       ) {
         System.out.println( description);
